@@ -66,4 +66,7 @@ public final class ApolloConfigUtil {
         return AUTHORITY_DATA_ID_POSTFIX;
     }
 
+    public static String getNamespaceName() {
+        return NAMESPACE_NAME;
+    }
 }
