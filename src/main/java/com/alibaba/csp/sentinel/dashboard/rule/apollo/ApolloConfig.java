@@ -29,8 +29,8 @@ public class ApolloConfig {
     @Bean
     public ApolloOpenApiClient apolloOpenApiClient() {
         ApolloOpenApiClient client = ApolloOpenApiClient.newBuilder()
-            .withPortalUrl("http://apollo.ywwl.com")
-            .withToken("423670ef5234331eaebae5a1ed9c379c00f3cef6")
+            .withPortalUrl("")
+            .withToken("")
             .build();
         return client;
     }
