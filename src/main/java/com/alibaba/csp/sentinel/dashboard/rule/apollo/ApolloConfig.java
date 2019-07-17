@@ -21,8 +21,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 /**
- * @author hantianwei@gmail.com
- * @since 1.5.0
+ * @author chenyin
  */
 @Configuration
 public class ApolloConfig {

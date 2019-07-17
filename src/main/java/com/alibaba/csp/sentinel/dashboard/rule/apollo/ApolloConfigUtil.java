@@ -15,9 +15,9 @@
  */
 package com.alibaba.csp.sentinel.dashboard.rule.apollo;
 
+
 /**
- * @author hantianwei@gmail.com
- * @since 1.5.0
+ * @author chenyin
  */
 public final class ApolloConfigUtil {
     /**

@@ -48,15 +48,13 @@ public abstract class BaseApolloRulePublisher implements DynamicRulePublisher {
         OpenItemDTO openItemDTO = new OpenItemDTO();
         openItemDTO.setKey(dataId);
         openItemDTO.setValue(JSON.toJSONString(rules));
-//        openItemDTO.setComment("Program auto-join");
-        openItemDTO.setDataChangeCreatedBy("shenyi");
+        openItemDTO.setDataChangeCreatedBy("chenyin");
         apolloOpenApiClient.createOrUpdateItem(appName, env, "default", namespaceName, openItemDTO);
 
         // Release configuration
         NamespaceReleaseDTO namespaceReleaseDTO = new NamespaceReleaseDTO();
         namespaceReleaseDTO.setEmergencyPublish(true);
-//        namespaceReleaseDTO.setReleaseComment("Modify or add configurations");
-        namespaceReleaseDTO.setReleasedBy("shenyi");
+        namespaceReleaseDTO.setReleasedBy("chenyin");
         namespaceReleaseDTO.setReleaseTitle("Modify or add configurations");
         apolloOpenApiClient.publishNamespace(appName, env, "default", namespaceName, namespaceReleaseDTO);
     }
