@@ -15,7 +15,11 @@
  */
 package com.alibaba.csp.sentinel.dashboard.rule.apollo;
 
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.DegradeRuleEntity;
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.SystemRuleEntity;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * 降级规则
@@ -28,6 +32,13 @@ public class DegradeRuleApolloPublisher extends BaseApolloRulePublisher {
 
     @Override
     public void publish(String app, Object rules) throws Exception {
+        List<DegradeRuleEntity> degradeRuleEntityList = (List<DegradeRuleEntity>) rules;
+        for (DegradeRuleEntity degradeRuleEntity : degradeRuleEntityList) {
+            degradeRuleEntity.setGmtCreate(null);
+            degradeRuleEntity.setGmtModified(null);
+            degradeRuleEntity.setIp(null);
+            degradeRuleEntity.setPort(null);
+        }
         super.publish(app, rules);
     }
 

@@ -15,7 +15,10 @@
  */
 package com.alibaba.csp.sentinel.dashboard.rule.apollo;
 
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.FlowRuleEntity;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * 流控规则
@@ -28,6 +31,14 @@ public class FlowRuleApolloPublisher extends BaseApolloRulePublisher {
 
     @Override
     public void publish(String app, Object rules) throws Exception {
+        List<FlowRuleEntity> flowRuleEntityList = (List<FlowRuleEntity>) rules;
+        for (FlowRuleEntity flowRuleEntity : flowRuleEntityList) {
+            flowRuleEntity.setGmtCreate(null);
+            flowRuleEntity.setGmtModified(null);
+            flowRuleEntity.setIp(null);
+            flowRuleEntity.setPort(null);
+        }
+
         super.publish(app, rules);
     }
 

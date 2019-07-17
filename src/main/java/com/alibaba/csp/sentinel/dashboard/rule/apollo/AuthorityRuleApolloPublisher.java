@@ -15,7 +15,11 @@
  */
 package com.alibaba.csp.sentinel.dashboard.rule.apollo;
 
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.AuthorityRuleEntity;
+import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.DegradeRuleEntity;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * 授权规则
@@ -28,6 +32,13 @@ public class AuthorityRuleApolloPublisher extends BaseApolloRulePublisher {
 
     @Override
     public void publish(String app, Object rules) throws Exception {
+        List<AuthorityRuleEntity> authorityRuleEntityList = (List<AuthorityRuleEntity>) rules;
+        for (AuthorityRuleEntity authorityRuleEntity : authorityRuleEntityList) {
+            authorityRuleEntity.setGmtCreate(null);
+            authorityRuleEntity.setGmtModified(null);
+            authorityRuleEntity.setIp(null);
+            authorityRuleEntity.setPort(null);
+        }
         super.publish(app, rules);
     }
 

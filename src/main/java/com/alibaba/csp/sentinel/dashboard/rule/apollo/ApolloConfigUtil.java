@@ -23,24 +23,26 @@ public final class ApolloConfigUtil {
     /**
      * 流控规则id
      */
-    public static final String FLOW_DATA_ID_POSTFIX = "flow-rules";
+    public static final String FLOW_DATA_ID_POSTFIX = "sentinel-flow-rules";
     /**
      * 降级规则id
      */
-    public static final String DEGRADE_DATA_ID_POSTFIX = "degrade-rules";
+    public static final String DEGRADE_DATA_ID_POSTFIX = "sentinel-degrade-rules";
     /**
      * 热点规则id
      */
-    public static final String PARAM_FLOW_DATA_ID_POSTFIX = "param-flow-rules";
+    public static final String PARAM_FLOW_DATA_ID_POSTFIX = "sentinel-param-flow-rules";
     /**
      * 系统规则id
      */
-    public static final String SYSTEM_DATA_ID_POSTFIX = "system-rules";
+    public static final String SYSTEM_DATA_ID_POSTFIX = "sentinel-system-rules";
     /**
      * 授权规则id
      */
-    public static final String AUTHORITY_DATA_ID_POSTFIX = "authority-rules";
-
+    public static final String AUTHORITY_DATA_ID_POSTFIX = "sentinel-authority-rules";
+    /**
+     * 规则存储nameSpace
+     */
     public static final String NAMESPACE_NAME = "application";
 
     private ApolloConfigUtil() {
