@@ -58,8 +58,10 @@ public abstract class BaseApolloRuleProvider implements DynamicRuleProvider {
      * @return
      */
     protected String getRulesFromApollo(String appName, String dataId) {
-        OpenNamespaceDTO openNamespaceDTO = apolloOpenApiClient.getNamespace(appName,
-                env, "default", ApolloConfigUtil.getNamespaceName());
+        String sentinelAppId = "sentinel";
+        OpenNamespaceDTO openNamespaceDTO = apolloOpenApiClient.getNamespace(sentinelAppId,
+                env, "default", appName);
+
         String rules = openNamespaceDTO
                 .getItems()
                 .stream()

@@ -43,19 +43,21 @@ public abstract class BaseApolloRulePublisher implements DynamicRulePublisher {
      * @return
      */
     protected void pushRulesToApollo(String appName, String dataId, Object rules) {
-        String namespaceName = ApolloConfigUtil.getNamespaceName();
+        String masterUser = "chenyin";
+        String clusterName = "default";
+        String sentinelAppId = "sentinel";
 
         OpenItemDTO openItemDTO = new OpenItemDTO();
         openItemDTO.setKey(dataId);
         openItemDTO.setValue(JSON.toJSONString(rules));
-        openItemDTO.setDataChangeCreatedBy("chenyin");
-        apolloOpenApiClient.createOrUpdateItem(appName, env, "default", namespaceName, openItemDTO);
+        openItemDTO.setDataChangeCreatedBy(masterUser);
+        apolloOpenApiClient.createOrUpdateItem(sentinelAppId, env, clusterName, appName, openItemDTO);
 
         // Release configuration
         NamespaceReleaseDTO namespaceReleaseDTO = new NamespaceReleaseDTO();
         namespaceReleaseDTO.setEmergencyPublish(true);
-        namespaceReleaseDTO.setReleasedBy("chenyin");
+        namespaceReleaseDTO.setReleasedBy(masterUser);
         namespaceReleaseDTO.setReleaseTitle("Modify or add configurations");
-        apolloOpenApiClient.publishNamespace(appName, env, "default", namespaceName, namespaceReleaseDTO);
+        apolloOpenApiClient.publishNamespace(sentinelAppId, env, clusterName, appName, namespaceReleaseDTO);
     }
 }
